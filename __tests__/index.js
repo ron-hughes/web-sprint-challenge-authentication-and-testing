@@ -22,4 +22,13 @@ afterAll(async () => {
           .send({ "username": "papa smurf", "password": "password" })
           .expect(201)
       });
+      it('should return an object with message property', function () {
+        return supertest(server)
+          .post('/api/auth/register')
+          .set('Content-Type', 'application/json')
+          .send({ "username": "papa smurf", "password": "password" })
+          .then(res => {
+            expect(res.body).toHaveProperty('message')
+          });
+      });
     });//end register endpoint

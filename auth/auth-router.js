@@ -16,7 +16,7 @@ userInfo.password = hash;
 
 users.add(userInfo)
 .then(user => {
-  res.status(201).json(user);
+  res.status(201).json({ message : "User Added!"});
 })
 .catch(error => {
   console.log('error', error)
